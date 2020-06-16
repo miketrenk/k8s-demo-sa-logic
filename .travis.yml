@@ -14,6 +14,6 @@ install: true
 script: true
 
 after_script:
-  - docker build --tag $DOCKER_USERNAME/sentiment-analysis-web-logic .
+  - docker build --tag $DOCKER_USERNAME/sentiment-analysis-logic .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push $DOCKER_USERNAME/sentiment-analysis-web-logic
+  - docker push $DOCKER_USERNAME/sentiment-analysis-logic
