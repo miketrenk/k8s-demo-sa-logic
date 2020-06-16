@@ -1,0 +1,15 @@
+language: python
+
+sudo: required
+
+services:
+  - docker
+
+branches:
+  only:
+  - master
+
+after_script:
+  - docker build --tag $DOCKER_USERNAME/sentiment-analysis-web-logic .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push $DOCKER_USERNAME/sentiment-analysis-web-logic
